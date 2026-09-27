@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#17382f">
+	<meta name="description" content="Friendly, no-fuss websites for Manchester trades. Daray &amp; Co. helps local tradespeople look the part and get found online.">
+	<title>Daray &amp; Co. | Websites for Manchester trades</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #17231e;
+			--green: #17382f;
+			--green-light: #285448;
+			--paper: #f5f4ed;
+			--white: #fffef9;
+			--lime: #d8ef65;
+			--coral: #ed7954;
+			--muted: #65716a;
+			--line: rgba(23, 35, 30, .17);
+			--display: "Space Grotesk", sans-serif;
+			--body: "DM Sans", sans-serif;
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+		a { color: inherit; }
+		button, input, textarea { font: inherit; }
+		.wrap { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+		.eyebrow { margin: 0 0 16px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+		.eyebrow::before { content: ""; display: inline-block; width: 21px; height: 2px; margin: 0 10px 3px 0; background: var(--coral); }
+		h1, h2, h3, p { margin-top: 0; }
+		h1, h2, h3 { font-family: var(--display); letter-spacing: 0; }
+		h2 { max-width: 720px; margin-bottom: 22px; font-size: clamp(36px, 5vw, 62px); line-height: 1.02; font-weight: 600; }
+		.button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 14px; padding: 0 20px; border: 1px solid transparent; background: var(--lime); color: var(--ink); font-weight: 700; text-decoration: none; transition: background .2s ease, transform .2s ease; }
+		.button:hover { background: #e5f58c; transform: translateY(-2px); }
+		.button .arrow { font-size: 20px; line-height: 1; }
+
+		.hero { position: relative; min-height: 700px; min-height: min(790px, 92svh); overflow: hidden; color: white; background: var(--green) url("https://images.pexels.com/photos/7937721/pexels-photo-7937721.jpeg?auto=compress&cs=tinysrgb&w=1800") center 45% / cover no-repeat; }
+		.hero::before { position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, rgba(13, 37, 30, .94) 0%, rgba(13, 37, 30, .77) 41%, rgba(13, 37, 30, .18) 100%); }
+		.site-header { position: relative; z-index: 2; display: flex; min-height: 90px; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.22); }
+		.brand { display: inline-flex; align-items: center; color: white; text-decoration: none; }
+		.brand img { display: block; width: 207px; height: auto; }
+		.nav { display: flex; align-items: center; gap: 30px; }
+		.nav a { color: white; font-size: 13px; font-weight: 600; text-decoration: none; }
+		.nav a:hover { color: var(--lime); }
+		.nav .nav-cta { padding: 11px 15px; border: 1px solid rgba(255,255,255,.65); }
+		.menu-toggle { display: none; padding: 9px 12px; border: 1px solid rgba(255,255,255,.6); background: transparent; color: white; font-weight: 700; }
+		.hero-content { position: relative; z-index: 1; display: flex; min-height: 600px; min-height: calc(min(790px, 92svh) - 91px); align-items: center; padding-block: 75px; }
+		.hero-copy { max-width: 680px; }
+		.hero .eyebrow { color: var(--lime); }
+		.hero h1 { max-width: 720px; margin-bottom: 22px; font-size: clamp(54px, 7.2vw, 88px); line-height: .98; font-weight: 600; }
+		.hero h1 span { color: var(--lime); }
+		.hero-copy > p:not(.eyebrow) { max-width: 485px; margin-bottom: 29px; color: rgba(255,255,255,.85); font-size: 18px; }
+		.hero-note { display: inline-block; margin-left: 15px; color: rgba(255,255,255,.8); font-size: 12px; }
+		.hero-stamp { position: absolute; right: 1%; bottom: 51px; display: grid; width: 106px; height: 106px; place-items: center; border: 1px solid rgba(255,255,255,.75); border-radius: 50%; color: white; font-size: 10px; font-weight: 700; line-height: 1.5; text-align: center; text-transform: uppercase; transform: rotate(9deg); }
+
+		.ticker { overflow: hidden; background: var(--lime); }
+		.ticker-inner[aria-hidden="true"] { display: none; }
+		.ticker-inner { display: flex; min-height: 55px; align-items: center; justify-content: space-between; gap: 20px; white-space: nowrap; font-family: var(--display); font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+		.ticker b { color: var(--green-light); font-size: 19px; }
+		@keyframes ticker-scroll { to { transform: translateX(-50%); } }
+		.intro { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; padding-block: 120px; align-items: start; }
+		.intro h2 { margin: 0; }
+		.intro-copy { max-width: 510px; padding-top: 9px; }
+		.intro-copy p { color: #47534d; font-size: 18px; }
+		.text-link { display: inline-flex; align-items: center; gap: 12px; padding-bottom: 5px; border-bottom: 1px solid var(--ink); font-weight: 700; text-decoration: none; }
+		.text-link:hover { color: var(--green-light); }
+
+		.services { padding-block: 94px 105px; background: var(--white); }
+		.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 35px; margin-bottom: 45px; }
+		.section-heading h2 { margin-bottom: 0; }
+		.section-heading > p { max-width: 300px; margin-bottom: 5px; color: var(--muted); }
+		.service-list { border-top: 1px solid var(--line); }
+		.service { display: grid; grid-template-columns: 70px 1fr 1.05fr 36px; align-items: center; gap: 25px; padding: 27px 4px; border-bottom: 1px solid var(--line); }
+		.service-number { color: var(--coral); font-family: var(--display); font-size: 15px; font-weight: 700; }
+		.service h3 { margin: 0; font-size: 25px; font-weight: 600; }
+		.service p { max-width: 430px; margin: 0; color: var(--muted); font-size: 14px; }
+		.service-mark { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid var(--line); border-radius: 50%; font-size: 18px; }
+		.kind-words { padding-block: 82px; background: var(--white); }
+		.kind-words-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+		.kind-words h2 { margin-bottom: 0; }
+		.kind-words-copy { max-width: 480px; }
+		.kind-words-copy p { color: var(--muted); }
+		.kind-words-copy .button { margin-top: 9px; }
+
+		.trade-band { display: grid; min-height: 430px; grid-template-columns: 1fr 1fr; background: var(--green); color: white; }
+		.trade-image { min-height: 430px; background: url("https://images.pexels.com/photos/10871737/pexels-photo-10871737.jpeg?auto=compress&cs=tinysrgb&w=1400") center 42% / cover no-repeat; }
+		.trade-copy { display: flex; max-width: 590px; flex-direction: column; justify-content: center; padding: 75px clamp(32px, 7vw, 105px); }
+		.trade-copy .eyebrow { color: var(--lime); }
+		.trade-copy h2 { font-size: clamp(38px, 4.5vw, 55px); }
+		.trade-copy p { max-width: 440px; color: rgba(255,255,255,.78); }
+		.trade-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+		.trade-tags span { padding: 8px 11px; border: 1px solid rgba(255,255,255,.3); font-size: 12px; }
+
+		.steps { padding-block: 110px 120px; }
+		.steps h2 { max-width: 650px; }
+		.step-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 53px; border-top: 1px solid var(--line); }
+		.step { padding: 27px 28px 0 0; }
+		.step + .step { padding-left: 28px; border-left: 1px solid var(--line); }
+		.step-num { display: block; margin-bottom: 27px; color: var(--coral); font-family: var(--display); font-size: 14px; font-weight: 700; }
+		.step h3 { margin-bottom: 10px; font-size: 23px; }
+		.step p { max-width: 310px; margin: 0; color: var(--muted); font-size: 14px; }
+
+		.contact { padding-block: 90px 100px; background: var(--coral); }
+		.contact-grid { display: grid; grid-template-columns: 1fr .85fr; gap: 90px; align-items: start; }
+		.contact h2 { max-width: 550px; font-size: clamp(44px, 6vw, 70px); }
+		.contact-intro { max-width: 425px; font-size: 17px; }
+		.contact-aside { margin-top: 38px; padding-top: 20px; border-top: 1px solid rgba(23,35,30,.3); }
+		.contact-aside small { display: block; margin-bottom: 7px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+		.contact-aside a { font-family: var(--display); font-size: 19px; font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+		.contact-form { display: grid; gap: 15px; padding-top: 10px; }
+		.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+		.contact-form label { display: grid; gap: 6px; font-size: 12px; font-weight: 700; }
+		.contact-form input, .contact-form textarea { width: 100%; padding: 13px 14px; border: 1px solid rgba(23,35,30,.45); border-radius: 0; outline: none; background: rgba(255,254,249,.65); color: var(--ink); }
+		.contact-form input:focus, .contact-form textarea:focus { border-color: var(--green); box-shadow: 0 0 0 2px rgba(23,56,47,.14); }
+		.contact-form textarea { min-height: 115px; resize: vertical; }
+		.contact-form .button { justify-self: start; background: var(--green); color: white; cursor: pointer; }
+		.contact-form .button:hover { background: var(--green-light); }
+		.form-note { margin: 0; color: rgba(23,35,30,.75); font-size: 11px; }
+		.site-footer { padding-block: 25px; background: var(--ink); color: white; }
+		.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+		.footer-inner p { margin: 0; color: rgba(255,255,255,.65); font-size: 11px; }
+		.footer-brand { color: var(--lime); font-family: var(--display); font-size: 14px; font-weight: 700; }
+
+		@media (max-width: 760px) {
+			.wrap { width: min(100% - 36px, 600px); }
+			.hero { min-height: 620px; min-height: 74svh; background-position: 58% center; }
+			.hero::before { background: linear-gradient(90deg, rgba(13,37,30,.91), rgba(13,37,30,.62)); }
+			.site-header { min-height: 76px; }
+			.menu-toggle { display: block; }
+			.nav { position: absolute; top: 75px; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 8px 18px 16px; background: var(--green); }
+			.nav.is-open { display: flex; flex-direction: column; }
+			.nav a { padding: 13px 0; }
+			.nav .nav-cta { margin-top: 6px; padding: 11px 13px; text-align: center; }
+			.hero-content { min-height: calc(74svh - 77px); padding-block: 36px 42px; }
+			.hero h1 { font-size: clamp(44px, 11.5vw, 66px); }
+			.hero-copy > p:not(.eyebrow) { font-size: 16px; }
+			.hero-note { display: block; margin: 14px 0 0; }
+			.hero-stamp { right: 10px; bottom: 20px; width: 78px; height: 78px; font-size: 8px; }
+			.ticker-track { display: flex; width: max-content; animation: ticker-scroll 24s linear infinite; }
+			.ticker-inner { width: max-content; max-width: none; flex: 0 0 auto; justify-content: flex-start; gap: 19px; margin: 0; padding-right: 19px; font-size: 11px; }
+			.ticker-inner[aria-hidden="true"] { display: flex; }
+			.intro { grid-template-columns: 1fr; gap: 26px; padding-block: 78px; }
+			.intro-copy p { font-size: 16px; }
+			.services { padding-block: 76px; }
+			.section-heading { display: block; margin-bottom: 30px; }
+			.section-heading > p { margin: 17px 0 0; }
+			.service { grid-template-columns: 32px 1fr 25px; gap: 10px; padding-block: 20px; }
+			.service h3 { font-size: 20px; }
+			.service p { grid-column: 2 / 3; grid-row: 2; font-size: 13px; }
+			.service-mark { grid-column: 3; grid-row: 1; width: 28px; height: 28px; }
+			.kind-words { padding-block: 72px; }
+			.kind-words-inner { grid-template-columns: 1fr; gap: 24px; }
+			.trade-band { grid-template-columns: 1fr; }
+			.trade-image { min-height: 270px; }
+			.trade-copy { padding: 58px 24px 65px; }
+			.steps { padding-block: 78px; }
+			.step-grid { grid-template-columns: 1fr; margin-top: 34px; }
+			.step, .step + .step { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+			.step-num { margin-bottom: 12px; }
+			.contact { padding-block: 72px; }
+			.contact-grid { grid-template-columns: 1fr; gap: 30px; }
+			.contact-aside { margin-top: 25px; }
+			.field-row { grid-template-columns: 1fr; }
+			.footer-inner { align-items: flex-start; flex-direction: column; }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-behavior: auto; }
+			*, *::before, *::after { transition-duration: .01ms !important; }
+			@media (max-width: 760px) {
+				.ticker-track { display: block; width: auto; animation: none; }
+				.ticker-inner, .ticker-inner[aria-hidden="true"] { display: flex; width: auto; max-width: none; flex-wrap: wrap; justify-content: center; gap: 4px 12px; margin: 0; padding: 10px 18px; white-space: normal; }
+				.ticker-inner[aria-hidden="true"] { display: none; }
+			}
+		}
+	</style>
+</head>
+<body>
+	<section class="hero" id="top">
+		<header class="site-header wrap">
+			<a class="brand" href="#top" aria-label="Daray &amp; Co. home">
+				<img src="daray-logo.svg" alt="Daray &amp; Co.">
+			</a>
+			<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+			<nav class="nav" id="main-nav" aria-label="Main navigation">
+				<a href="#services">What we do</a>
+				<a href="#reviews">Kind words</a>
+				<a href="#approach">How it works</a>
+				<a class="nav-cta" href="#contact">Let's talk</a>
+			</nav>
+		</header>
+		<div class="hero-content wrap">
+			<div class="hero-copy">
+				<p class="eyebrow">Independent web studio · Manchester</p>
+				<h1>Good work<br>deserves a<br><span>good website.</span></h1>
+				<p>We make straightforward, hard-working websites for the people who keep Greater Manchester moving.</p>
+				<a class="button" href="#contact">Tell us what you do <span class="arrow" aria-hidden="true">&rarr;</span></a>
+				<span class="hero-note">Local people. Plain speaking. No tech waffle.</span>
+			</div>
+			<div class="hero-stamp" aria-label="Proudly based in Manchester">Made for<br>local trade<br>Manchester</div>
+		</div>
+	</section>
+
+	<div class="ticker" aria-label="Good work should look good online">
+		<div class="ticker-track">
+			<div class="ticker-inner wrap"><span>Good work</span><b aria-hidden="true">*</b><span>Should look good online</span><b aria-hidden="true">*</b><span>Made in Manchester</span><b aria-hidden="true">*</b><span>Built for real life</span></div>
+			<div class="ticker-inner wrap" aria-hidden="true"><span>Good work</span><b aria-hidden="true">*</b><span>Should look good online</span><b aria-hidden="true">*</b><span>Made in Manchester</span><b aria-hidden="true">*</b><span>Built for real life</span></div>
+		</div>
+	</div>
+
+	<main>
+		<section class="intro wrap">
+			<div>
+				<p class="eyebrow">A little more you, online</p>
+				<h2>You're good at what you do. Let's make sure people can see it.</h2>
+			</div>
+			<div class="intro-copy">
+				<p>When someone nearby needs a job doing, your website should make the next step obvious. We build clear, mobile-friendly sites that show what you do, where you work and how to get hold of you.</p>
+				<a class="text-link" href="#contact">Have a project in mind? <span aria-hidden="true">&rarr;</span></a>
+			</div>
+		</section>
+
+		<section class="services" id="services">
+			<div class="wrap">
+				<div class="section-heading">
+					<div><p class="eyebrow">The useful stuff</p><h2>Everything you need.<br>Nothing you don't.</h2></div>
+					<p>A good website doesn't need to be complicated. It needs to make your business easy to trust and easy to contact.</p>
+				</div>
+				<div class="service-list">
+					<article class="service"><span class="service-number">01</span><h3>Websites that work</h3><p>Made for phones first, with your services, service area and contact details right where people need them.</p><span class="service-mark" aria-hidden="true">+</span></article>
+					  <article class="service"><span class="service-number">02</span><h3>A look that's yours</h3><p>A simple, consistent identity and a site that feels like your business, not an off-the-shelf template.</p><span class="service-mark" aria-hidden="true">+</span></article>
+					<article class="service"><span class="service-number">03</span><h3>Help after launch</h3><p>Need to change a number, add a service or ask a question? Get a real person, not a support maze.</p><span class="service-mark" aria-hidden="true">+</span></article>
+				</div>
+			</div>
+		</section>
+
+		<section class="trade-band">
+			<div class="trade-image" role="img" aria-label="Electrician wearing protective gloves while working on a circuit breaker panel"></div>
+			<div class="trade-copy">
+				<p class="eyebrow">Built around your kind of work</p>
+				<h2>From first fix to finished job.</h2>
+				<p>Whether you're a one-person outfit or a growing team, we'll shape your site around the work you actually want more of.</p>
+				<div class="trade-tags"><span>Electricians</span><span>Plumbers</span><span>Builders</span><span>Joiners</span><span>Landscapers</span><span>And plenty more</span></div>
+			</div>
+		</section>
+
+		<section class="kind-words" id="reviews">
+			<div class="kind-words-inner wrap">
+				<div><p class="eyebrow">Kind words, when they're earned</p><h2>Real feedback.<br>Shared with permission.</h2></div>
+				<div class="kind-words-copy">
+					<p>No made-up reviews here. This space is ready for feedback from real clients, shared in their own words and with their permission.</p>
+					<a class="button" href="#contact">Be one of our first projects <span class="arrow" aria-hidden="true">&rarr;</span></a>
+				</div>
+			</div>
+		</section>
+
+		<section class="steps wrap" id="approach">
+			<p class="eyebrow">No fuss, start to finish</p>
+			<h2>A straightforward process, with you in the loop.</h2>
+			<div class="step-grid">
+				<article class="step"><span class="step-num">STEP 01</span><h3>Have a quick chat</h3><p>Tell us about your work, the customers you want and what your current site is missing.</p></article>
+				<article class="step"><span class="step-num">STEP 02</span><h3>We make a plan</h3><p>You'll get a clear scope and quote before anything starts. No jargon, no surprises.</p></article>
+				<article class="step"><span class="step-num">STEP 03</span><h3>Get your site live</h3><p>We build, review it together, then help you get everything ready for launch.</p></article>
+			</div>
+		</section>
+
+		<section class="contact" id="contact">
+			<div class="contact-grid wrap">
+				<div>
+					<p class="eyebrow">Start with a conversation</p>
+					<h2>Got a job for us?</h2>
+					<p class="contact-intro">Tell us a bit about your business and what you'd like your website to do. We'll get back to you for a no-pressure chat.</p>
+					<div class="contact-aside"><small>Based in Manchester, working across Greater Manchester</small><a href="mailto:hello@darayandco.co.uk">hello@darayandco.co.uk</a></div>
+				</div>
+				<form class="contact-form" id="enquiry-form">
+					<div class="field-row">
+						<label>Your name<input name="name" autocomplete="name" required></label>
+						<label>Business name<input name="business" autocomplete="organization"></label>
+					</div>
+					<label>Email address<input type="email" name="email" autocomplete="email" required></label>
+					<label>What kind of work do you do?<textarea name="message" required></textarea></label>
+					<button class="button" type="submit">Send an enquiry <span class="arrow" aria-hidden="true">&rarr;</span></button>
+					<p class="form-note">No pressure, no mailing list. Just a reply from a real person.</p>
+				</form>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="footer-inner wrap"><span class="footer-brand">DARAY &amp; CO.</span><p>Independent web studio for Greater Manchester trades.</p><p>&copy; <span id="year"></span> Daray &amp; Co.</p></div>
+	</footer>
+	<script>
+		const menuToggle = document.querySelector('.menu-toggle');
+		const mainNav = document.querySelector('#main-nav');
+		menuToggle.addEventListener('click', () => {
+			const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+			menuToggle.setAttribute('aria-expanded', String(!isOpen));
+			mainNav.classList.toggle('is-open', !isOpen);
+		});
+		mainNav.addEventListener('click', (event) => {
+			if (event.target.closest('a')) {
+				menuToggle.setAttribute('aria-expanded', 'false');
+				mainNav.classList.remove('is-open');
+			}
+		});
+		document.querySelector('#year').textContent = new Date().getFullYear();
+		document.querySelector('#enquiry-form').addEventListener('submit', (event) => {
+			event.preventDefault();
+			const fields = new FormData(event.currentTarget);
+			const subject = encodeURIComponent(`Website enquiry from ${fields.get('name')}`);
+			const body = encodeURIComponent(`Name: ${fields.get('name')}\nBusiness: ${fields.get('business')}\nEmail: ${fields.get('email')}\n\n${fields.get('message')}`);
+			window.location.href = `mailto:hello@darayandco.co.uk?subject=${subject}&body=${body}`;
+		});
+	</script>
+</body>
+</html>
