@@ -274,9 +274,11 @@
 					<p class="eyebrow">Start with a conversation</p>
 					<h2>Got a job for us?</h2>
 					<p class="contact-intro">Tell us a bit about your business and what you'd like your website to do. We'll get back to you for a no-pressure chat.</p>
-					<div class="contact-aside"><small>Based in Manchester, working across Greater Manchester</small><a href="mailto:hello@darayandco.co.uk">hello@darayandco.co.uk</a></div>
+					<div class="contact-aside"><small>Based in Manchester, working across Greater Manchester</small><a href="mailto:belvoirstores@gmail.com">belvoirstores@gmail.com</a></div>
 				</div>
-				<form class="contact-form" id="enquiry-form">
+				<form class="contact-form" id="enquiry-form" action="https://formsubmit.co/belvoirstores@gmail.com" method="POST">
+					<input type="hidden" name="_subject" value="New website enquiry - Daray &amp; Co.">
+					<input type="hidden" name="_template" value="table">
 					<div class="field-row">
 						<label>Your name<input name="name" autocomplete="name" required></label>
 						<label>Business name<input name="business" autocomplete="organization"></label>
@@ -284,7 +286,7 @@
 					<label>Email address<input type="email" name="email" autocomplete="email" required></label>
 					<label>What kind of work do you do?<textarea name="message" required></textarea></label>
 					<button class="button" type="submit">Send an enquiry <span class="arrow" aria-hidden="true">&rarr;</span></button>
-					<p class="form-note">No pressure, no mailing list. Just a reply from a real person.</p>
+					<p class="form-note">Sent via FormSubmit to Daray &amp; Co. No mailing list, just a reply from a real person.</p>
 				</form>
 			</div>
 		</section>
@@ -308,13 +310,6 @@
 			}
 		});
 		document.querySelector('#year').textContent = new Date().getFullYear();
-		document.querySelector('#enquiry-form').addEventListener('submit', (event) => {
-			event.preventDefault();
-			const fields = new FormData(event.currentTarget);
-			const subject = encodeURIComponent(`Website enquiry from ${fields.get('name')}`);
-			const body = encodeURIComponent(`Name: ${fields.get('name')}\nBusiness: ${fields.get('business')}\nEmail: ${fields.get('email')}\n\n${fields.get('message')}`);
-			window.location.href = `mailto:hello@darayandco.co.uk?subject=${subject}&body=${body}`;
-		});
 	</script>
 </body>
 </html>
